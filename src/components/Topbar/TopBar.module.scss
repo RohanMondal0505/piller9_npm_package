@@ -1,0 +1,106 @@
+.TopBar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.Left {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.Right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		button {
+			display: flex;
+			width: 15.4375rem;
+			height: 2.9375rem;
+			padding: 0.75rem 1.625rem;
+			justify-content: center;
+			align-items: center;
+			gap: 0.625rem;
+			flex-shrink: 0;
+			border-radius: 0.5rem;
+			background: var(--Ellipse-30, #e6d366);
+			color: #fff;
+			font-family: Poppins;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.25rem; /* 125% */
+			border: none;
+			cursor: pointer;
+			transition: all ease-in-out 0.3s;
+			&:hover{
+				opacity: 0.95;
+				transform: scaleX(0.95);
+			}
+		}
+
+		.Notifications {
+			width: 3rem;
+			height: 3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--c2);
+			border-radius: 50%;
+			svg {
+				width: 1.72rem;
+				height: 1.72rem;
+			}
+		}
+
+		.InputWrapper {
+			width: 21.5rem;
+			height: 2.5rem;
+			width: 21.5rem;
+			height: 2.5rem;
+			border-radius: 6.25rem;
+			padding: 0.4rem 1rem;
+			border: 1px solid var(--c4);
+			background: var(--c2);
+			outline: none;
+
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			svg {
+				width: 1rem;
+				height: 1rem;
+				flex-shrink: 0;
+			}
+		}
+
+		input {
+			width: 100%;
+			border: none;
+			outline: none;
+			&::placeholder {
+				color: var(--c5);
+				font-family: var(--f3);
+				font-size: 0.875rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+			}
+		}
+		.Profile {
+			width: 2.99125rem;
+			height: 3.0625rem;
+			flex-shrink: 0;
+			border-radius: 50%;
+			overflow: hidden;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+}

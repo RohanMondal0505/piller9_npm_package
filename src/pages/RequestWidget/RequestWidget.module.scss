@@ -1,0 +1,220 @@
+.RequestWidget {
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	gap: 2rem;
+	padding: 1.4rem;
+	flex-wrap: wrap;
+	height: calc(100vh - 10rem);
+	overflow: hidden;
+}
+
+.FormContainer {
+	background-color: var(--c2);
+	padding: 4rem 3rem;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+	height: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-top: 2rem;
+
+	width: 38.9375rem;
+	border-radius: 1.875rem;
+	background: var(--c2);
+
+	h2 {
+		color: var(--c11);
+		font-family: var(--f2);
+		font-size: 2.25rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: 0.0225rem;
+		text-transform: capitalize;
+	}
+
+	p {
+		color: var(--c6);
+		font-family: var(--f3);
+		font-size: 0.75rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.5rem; /* 200% */
+	}
+
+	.Form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.Input,
+	.Textarea {
+		width: 100%;
+		padding: 1rem;
+
+		border-radius: 0.536rem;
+		border: 0.858px solid var(--c4);
+		background: var(--c2);
+		box-shadow: 0px 0.858px 1.715px 0px rgba(228, 229, 231, 0.24);
+		outline: none;
+
+		&::placeholder {
+			overflow: hidden;
+			color: var(--c5);
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-family: var(--f3);
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 140%; /* 1.225rem */
+			letter-spacing: -0.00875rem;
+		}
+	}
+
+	.Textarea {
+		resize: vertical;
+		height: 8rem;
+	}
+
+	.SubmitButton {
+		display: flex;
+		height: 3.625rem;
+		padding: 0.8125rem 6.375rem;
+		justify-content: center;
+		align-items: center;
+		gap: 0.625rem;
+		align-self: stretch;
+		border-radius: 0.625rem;
+		background: var(--c10);
+		color: var(--c2);
+		text-align: center;
+		font-family: var(--f3);
+		font-size: 0.875rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		border: none;
+		cursor: pointer;
+	}
+}
+
+.SubmittedRequestsContainer {
+	flex: 1;
+	min-width: 300px;
+	height: 100%;
+	overflow-y: scroll;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	h3 {
+		color: var(--c11);
+		font-family: var(--f3);
+		font-size: 1.5rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 150%; /* 2.25rem */
+		letter-spacing: 0.03rem;
+	}
+
+	.RequestList {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.Left {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+
+	.RequestCard {
+		// height: 9.125rem;
+		border-radius: 0.9375rem;
+		background: var(--c2);
+		padding: 2rem;
+		display: flex;
+		gap: 4rem;
+		align-items: center;
+		justify-content: space-between;
+
+		.RequestHeader {
+			display: flex;
+			gap: 2rem;
+			align-items: center;
+
+			h4 {
+				color: var(--c11);
+				font-family: var(--f3);
+				font-size: 1.1875rem;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 120%; /* 1.78125rem */
+				letter-spacing: 0.02375rem;
+				margin: 0;
+			}
+
+			span {
+				color: var(--c5);
+				font-family: var(--f3);
+				font-size: 0.75rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 170%; /* 1.275rem */
+			}
+		}
+
+		p {
+			color: var(--c16);
+			font-family: var(--f3);
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 120%; /* 1.7rem */
+		}
+
+		.ReadMore {
+			color: var(--c5);
+			font-family: var(--f3);
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 170%;
+			cursor: pointer;
+		}
+
+		.Status {
+			display: flex;
+			// width: 9.375rem;
+			padding: 0.38031rem 1.172113rem;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
+			border-radius: 1.44231rem;
+			background: var(--c17);
+
+			color: var(--c18);
+			text-align: center;
+			font-family: Inter;
+			font-size: 1.08175rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.62263rem; /* 150% */
+		}
+
+		.StatusIndicator {
+			width: 0.72113rem;
+			height: 0.72113rem;
+			background-color: var(--c18);
+			border-radius: 50%;
+		}
+	}
+}

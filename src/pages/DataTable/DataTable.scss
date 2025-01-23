@@ -1,0 +1,18 @@
+.Key_StandardStatus {
+	span {
+		background-color: #e6d366;
+		display: inline-block;
+		padding: 0.3rem 1.2rem;
+		width: max-content;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 3rem;
+
+		&.Active {
+			background-color: rgb(27, 214, 27);
+		}
+
+	
+	}
+}

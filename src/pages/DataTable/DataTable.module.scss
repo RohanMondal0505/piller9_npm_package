@@ -1,0 +1,330 @@
+// DataTable.module.scss
+.container {
+	width: 100%;
+	background-color: var(--c2);
+	color: var(--c11);
+	border-radius: 0.7rem;
+	height: calc(100% - 0.2rem);
+	// overflow: hidden;
+	padding-top: 5rem;
+
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	&.AutoHeight {
+		height: 100%;
+		padding-top: 2rem;
+
+		.SelectField {
+			z-index: 100;
+			top: -4%;
+			left: 1rem;
+		}
+	}
+
+	.SelectField {
+		position: absolute;
+		top: 0.5rem;
+		right: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		width: max-content;
+		select {
+			padding: 0.3rem 0.5rem;
+			outline: none;
+			border: 0.2rem solid #2c2c2c2d;
+			border-radius: 0.35rem;
+		}
+
+		button {
+			cursor: pointer;
+			background: transparent;
+			border: none;
+		}
+	}
+}
+
+.BackButton {
+	border-radius: 0.5rem;
+	background: var(--Ellipse-30, #e6d366);
+	display: inline-flex;
+	height: 2.5rem;
+	width: max-content;
+	margin-left: auto;
+	padding: 0.75rem 2.625rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.625rem;
+	flex-shrink: 0;
+	color: #fff;
+	font-family: Poppins;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem; /* 125% */
+
+	cursor: pointer;
+	border: none;
+	transition: all ease-in-out 0.3s;
+	&:hover {
+		opacity: 0.75;
+	}
+}
+
+.KeysToShow {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	margin-bottom: 1rem;
+	gap: 1rem;
+	padding: 0 1rem;
+	.Left {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		.selectedKey {
+			display: flex;
+			width: auto;
+			height: 3rem;
+			padding: 0.75rem 1.4rem;
+			justify-content: center;
+			align-items: center;
+			gap: 0.625rem;
+			border-radius: 0.5rem;
+			border: 1px solid #ece9f1;
+
+			color: #2c2c2c;
+			font-family: Poppins;
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.25rem; /* 142.857% */
+		}
+
+		.selectedKey span {
+			display: flex;
+			width: 1.5rem;
+			height: 1.5rem;
+			padding: 0.25rem;
+			justify-content: center;
+			align-items: center;
+			gap: 0.83331rem;
+			flex-shrink: 0;
+			border-radius: 0.75rem;
+			background: rgba(17, 17, 17, 0.05);
+			backdrop-filter: blur(2.6666667461395264px);
+
+			svg {
+				width: 1.083331rem;
+				height: 1.083331rem;
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	.Right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		select {
+			padding: 0.3rem 0.5rem;
+			outline: none;
+			border: 0.2rem solid #2c2c2c2d;
+			border-radius: 0.35rem;
+		}
+
+		button {
+			cursor: pointer;
+			background: transparent;
+			border: none;
+		}
+	}
+}
+.Refresh {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.3rem;
+	background-color: #494848cb;
+	color: #fff;
+	border-radius: 0.2rem;
+	cursor: pointer;
+}
+
+.search {
+	display: flex;
+	align-items: center;
+	width: 20rem;
+	input {
+		width: 20rem;
+		padding: 8px;
+		border: none;
+		border-radius: 4px;
+		background-color: #fff;
+		color: #666666;
+		border: 0.2rem solid #2c2c2c2d;
+		outline: none;
+	}
+}
+
+.searchIcon {
+	color: #ffcc00;
+	margin-left: -24px;
+}
+
+.TableBox {
+	flex: 1;
+	overflow-y: scroll;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	thead {
+		width: 100%;
+		background: rgba(217, 217, 217, 0.16);
+		th {
+			padding: 1rem;
+			cursor: pointer;
+			color: #666666;
+			text-align: left;
+			// text-transform: uppercase;
+			svg {
+				margin-left: 4px;
+			}
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 0.1rem solid #6666661a;
+			// &:nth-child(even) {
+			// 	background-color: #3a3a3a;
+			// }
+		}
+		td {
+			padding: 1.4rem 1rem;
+			text-align: left;
+		}
+	}
+}
+
+.iconInactive {
+	color: #ffcc00;
+}
+
+.iconActive {
+	color: #00ff00;
+}
+
+.pagination {
+	margin-top: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 1rem;
+
+	.Top {
+		display: flex;
+		align-items: center;
+		gap: 5rem;
+	}
+
+	span {
+		color: #3d3d3d;
+	}
+	.pageNumbers {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+
+		.Arrow {
+			cursor: pointer;
+			transition: all ease-in-out 0.3s;
+
+			&:hover {
+				scale: 0.85;
+				opacity: 0.95;
+			}
+		}
+		button {
+			border: none;
+			color: #908d8d;
+			padding: 0.6rem;
+			border-radius: 50%;
+			background: transparent;
+			cursor: pointer;
+			height: 3.2rem;
+			aspect-ratio: 1/1;
+			&.activePage {
+				background-color: #e6d366;
+				color: #fff;
+			}
+			&:hover {
+				background-color: #e6d36698;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.SwitchContainer {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.5rem;
+}
+
+.SwitchLabel {
+	font-size: 16px;
+	color: #3d3d3d;
+}
+
+.Switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+}
+
+.Switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.Slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
+	border-radius: 20px;
+}
+
+.Slider:before {
+	position: absolute;
+	content: "";
+	height: 14px;
+	width: 14px;
+	left: 3px;
+	bottom: 3px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + .Slider {
+	background-color: green;
+}
+
+input:checked + .Slider:before {
+	transform: translateX(20px);
+}

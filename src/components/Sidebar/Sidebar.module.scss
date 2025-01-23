@@ -1,0 +1,83 @@
+.Sidebar {
+	height: 100%;
+	width: max-content;
+	background-color: var(--rgb1);
+	display: flex;
+	flex-direction: column;
+	padding: 5rem 2.6875rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+	flex-shrink: 0;
+	background: var(--lg1);
+
+	.Logo {
+		margin-bottom: 0.4rem;
+		width: 9.5rem;
+		height: 2.26956rem;
+		flex-shrink: 0;
+	}
+
+	.LineAsset {
+		margin-bottom: 1rem;
+		width: 14.57813rem;
+
+		svg,img {
+			width: 100%;
+		}
+	}
+	a,
+	.SidebarItem {
+		text-decoration: none;
+		width: 13.71875rem;
+		height: 3.375rem;
+		flex-shrink: 0;
+		cursor: pointer;
+		color: var(--c2);
+		font-family: var(--f3);
+		font-size: 0.875rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 100%; /* 0.875rem */
+		border-radius: 1rem;
+
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+		gap: 1rem;
+
+		span {
+			width: 1.875rem;
+			height: 1.875rem;
+			flex-shrink: 0;
+			border-radius: 0.75rem;
+			background: #252525;
+			box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		svg {
+			width: 1.1875rem;
+			height: 1.1875rem;
+			flex-shrink: 0;
+			color: #e6d366;
+		}
+
+		&:hover,
+		&.active {
+			background-color: var(--c3);
+
+			span {
+				background: #e3d065;
+			}
+			svg {
+				color: var(--c2);
+				path {
+					fill: #fff;
+				}
+			}
+		}
+	}
+}
