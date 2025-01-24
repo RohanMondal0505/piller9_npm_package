@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { DashboardDemo } from "../../assets/assetsIndex.jsx";
+import DashboardDemo from "../../assets/images/DashboardDemo.png";
 import axios from "../../components/Hooks/axios";
 import { useDeleteAlert } from "../../components/Hooks/UseDeleteAlert";
 import { formatTimestamp } from "../../components/utils/HelperFunctions";
@@ -25,7 +25,7 @@ const MultiDashboard = () => {
 	const navigate = useNavigate();
 
 	const handleOpenView = (data) => {
-		navigate("/dynamic-dashboard");
+		navigate("/user/dynamic-dashboard");
 		dispatch(setOpenedDashboard(data)); //saving state in redux for opened dashboard for view and edit
 	};
 
@@ -73,8 +73,8 @@ const MultiDashboard = () => {
 					<div className={styles.Left}>
 						<h2>Build Your Dashboard</h2>
 						<p>
-							Lorem ipsum dolor sit amet consectetur. Tellus risus ut massa quis vitae viverra aenean. Sapien in
-							amet amet velit congue. Interdum id in libero placerat malesuada. Vel aliquam scelerisque ut .
+							Lorem ipsum dolor sit amet consectetur. Tellus risus ut massa quis vitae viverra aenean. Sapien in amet amet velit
+							congue. Interdum id in libero placerat malesuada. Vel aliquam scelerisque ut .
 						</p>
 					</div>
 					<button onClick={() => setOpenTitlePopup(true)}>Create Your Dashboard</button>
@@ -95,7 +95,14 @@ const MultiDashboard = () => {
 									<button onClick={() => handleOpenView(item)}>View</button>
 								</div>
 								<div className={styles.Image}>
-									<img src={DashboardDemo} alt="" height={"100%"} width={"100%"} />
+									<img
+										src={
+											"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FDashboardDemo.png?alt=media&token=842d2a46-7d24-4ddb-9b9b-0623a0814fd9"
+										}
+										alt=""
+										height={"100%"}
+										width={"100%"}
+									/>
 								</div>
 							</div>
 						))}

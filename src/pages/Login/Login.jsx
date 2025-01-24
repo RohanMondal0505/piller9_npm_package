@@ -34,7 +34,7 @@ const Login = () => {
 				ls.set("Pilar9_Token_npm_ls", data?.data?.token);
 				dispatch(setUser(data?.data?.user));
 				axios.defaults.headers.Authorization = data?.data?.token;
-				navigate("/dashboard");
+				navigate("/user/dashboard");
 				toast.success("Login Successfully...");
 			})
 			.catch((err) => {
@@ -44,7 +44,7 @@ const Login = () => {
 	};
 
 	useEffect(() => {
-		if (ls.get("Pilar9_Token_npm_ls")) navigate("/dashboard");
+		if (ls.get("Pilar9_Token_npm_ls")) navigate("/user/dashboard");
 	}, []);
 
 	return (

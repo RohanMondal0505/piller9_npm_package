@@ -73,6 +73,12 @@
 				align-items: center;
 				gap: 1rem;
 			}
+			img {
+				width: 2rem !important;
+				height: 2rem !important;
+				flex-shrink: 0;
+				cursor: pointer;
+			}
 		}
 	}
 }

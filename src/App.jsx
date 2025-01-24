@@ -23,7 +23,7 @@ const MultiDashboard = lazy(() => import("./pages/MultiDashboard/MultiDashboard.
 const RequestWidget = lazy(() => import("./pages/RequestWidget/RequestWidget.jsx"));
 const DynamicDashboard = lazy(() => import("./pages/DynamicDashboard/DynamicDashboard.jsx"));
 
-const App = ({ token, user, X_API_KEY, API_BASE_URL }) => {
+const App = ({ token, user, X_API_KEY, API_BASE_URL, logoutUrl, logoutFunction }) => {
 	// const location = useLocation();
 
 	useEffect(() => {
@@ -58,7 +58,7 @@ const App = ({ token, user, X_API_KEY, API_BASE_URL }) => {
 				<Routes>
 					{/* <Route path="/" element={<Login />} /> */}
 					<Route path="/" element={<Navigate to="/user/dashboard" />} />
-					<Route path="/user" element={<Wrapper />}>
+					<Route path="/user" element={<Wrapper {...{ logoutUrl, logoutFunction }} />}>
 						<Route path="dashboard" element={<DashboardNew />} />
 						<Route path="multi-dashboard" element={<MultiDashboard />} />
 						<Route path="data-table" element={<DataTable />} />
@@ -72,7 +72,7 @@ const App = ({ token, user, X_API_KEY, API_BASE_URL }) => {
 
 export { App };
 
-const Wrapper = () => {
+const Wrapper = ({ logoutUrl, logoutFunction }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { openWidgetInFullScreen } = useSelector((state) => state.widget);
@@ -90,7 +90,7 @@ const Wrapper = () => {
 			{openLoadingPopup && <LoadingPopup />}
 			{openWidgetInFullScreen && <FullScreenPopup />}
 			<Suspense fallback={<LoadingIndicator />}>
-				<Sidebar />
+				<Sidebar {...{ logoutUrl, logoutFunction }} />
 
 				<div className={styles.MainWrapper}>
 					<TopBar />

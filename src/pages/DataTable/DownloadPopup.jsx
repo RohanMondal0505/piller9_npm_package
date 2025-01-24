@@ -3,7 +3,9 @@ import "jspdf-autotable";
 import * as React from "react";
 import { CSVLink } from "react-csv";
 import { RxCross2 } from "react-icons/rx";
-import { DownloadButton, CsvIcon, PdfIcon } from "../../assets/svg/SvgIndex";
+import CsvIcon from "../../assets/images/CsvIcon.webp";
+import DownloadButton from "../../assets/images/DownloadButton.webp";
+import PdfIcon from "../../assets/images/PdfIcon.webp";
 import styles from "./DownloadPopup.module.scss";
 
 const DownloadPopup = ({ setOpenDownloadPopup, data }) => {
@@ -25,7 +27,7 @@ const DownloadPopup = ({ setOpenDownloadPopup, data }) => {
 		// Add title to PDF
 		doc.text("Data Table", 14, 15);
 
-		const tableStartY = 20; 
+		const tableStartY = 20;
 
 		// Add table to PDF
 		doc.autoTable({
@@ -48,21 +50,22 @@ const DownloadPopup = ({ setOpenDownloadPopup, data }) => {
 
 				<div className={styles.Box} onClick={handleDownloadPdf}>
 					<span>
-						<PdfIcon />
+						<img src={PdfIcon} alt="" />
+
 						<p>Download as PDF </p>
 					</span>
-					<DownloadButton />
+					<img src={DownloadButton} alt="" />
 				</div>
 				<div className={styles.Box}>
 					<span>
-						<CsvIcon />
+						<img src={CsvIcon} alt="" />
 						<p>
 							<CSVLink data={data} headers={headers} filename={"DataTable.csv"}>
 								Download as CSV
 							</CSVLink>
 						</p>
 					</span>
-					<DownloadButton />
+					<img src={DownloadButton} alt="" />
 				</div>
 			</div>
 		</div>
