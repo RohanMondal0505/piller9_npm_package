@@ -121,7 +121,7 @@ const DynamicDashboard = () => {
 					<div className={styles.Buttons}>
 						<button
 							onClick={() => {
-								navigate("/multi-dashboard");
+								navigate("/user/multi-dashboard");
 								dispatch(setOpenedDashboard({}));
 							}}>
 							Back
