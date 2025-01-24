@@ -1,15 +1,16 @@
 {
 	"name": "piller9_npm_user",
-	"version": "1.0.8",
+	"version": "1.1.3",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"scripts": {
-		"rollup": "npx rollup -c"
+		"rollup": "npx rollup -c",
+		"publish": "npm publish"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RohanMondal0505/demo_package_setup"
+		"url": "git+https://github.com/RohanMondal0505/demo_package_setup.git"
 	},
 	"keywords": [
 		"npm",
