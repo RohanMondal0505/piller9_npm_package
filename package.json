@@ -12,6 +12,9 @@
 		"type": "git",
 		"url": "git+https://github.com/RohanMondal0505/demo_package_setup.git"
 	},
+	"bugs": {
+		"url": "https://github.com/RohanMondal0505/demo_package_setup/issues"
+	},
 	"keywords": [
 		"npm",
 		"package"
