@@ -21,7 +21,7 @@ const defaultLayout = [
 const Dashboard = () => {
 	const dispatch = useDispatch();
 	const [layout, setLayout] = useState(defaultLayout);
-	const [dashboardData, setDashboardData] = useState(null);
+	const [dashboardData, setDashboardData] = useState({ widgets: [], layout: defaultLayout });
 	const [showUpdateButton, setShowUpdateButton] = useState(false); //for show save layout button
 	const [reload, setReload] = useState(0);
 	const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ const Dashboard = () => {
 	}, []);
 
 	//state to revert to original state if cancel edit
-	const [backupDashboardData, setBackupDashboardData] = useState(null);
+	const [backupDashboardData, setBackupDashboardData] = useState({ widgets: [], layout: defaultLayout });
 
 	const [updatingLayout, setUpdatingLayout] = useState(false);
 
