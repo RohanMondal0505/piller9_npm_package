@@ -11,6 +11,7 @@ import Loading from "../../components/Loading/Loading";
 import styles from "./DataTable.module.scss";
 import "./DataTable.scss";
 import DownloadPopup from "./DownloadPopup";
+import { formatTimestamp } from "../../components/utils/HelperFunctions";
 
 const DataTable = ({ id = "RMAWANIR", pagination }) => {
 	const [listings, setListings] = useState([]);
@@ -114,12 +115,7 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 					</div>
 					<div className={styles.Right}>
 						<div className={styles.search}>
-							<input
-								type="text"
-								placeholder="Search..."
-								value={search}
-								onChange={(e) => setSearch(e.target.value)}
-							/>
+							<input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
 							<FaSearch className={styles.searchIcon} />
 						</div>
 						<span className={styles.Refresh} onClick={() => setReload(Math.random())}>
@@ -153,7 +149,9 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 										</td>
 										{selectedKeys.map((key) => (
 											<td key={key} className={`Key_${key}`}>
-												<span className={row[key] === "A" ? "Active" : ""}>{row[key] ?? "N/A"}</span>
+												<span className={row[key] === "A" ? "Active" : ""}>
+													{key === "ModifiedDate" ? formatTimestamp(row[key]) : row[key] ?? "N/A"}
+												</span>
 											</td>
 										))}
 									</tr>
@@ -166,8 +164,8 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 				<div className={styles.pagination}>
 					<div className={styles.Top}>
 						<span>
-							Showing rows {(currentPage - 1) * rowsPerPage + 1} to{" "}
-							{Math.min(currentPage * rowsPerPage, filteredData.length)} of {filteredData.length}
+							Showing rows {(currentPage - 1) * rowsPerPage + 1} to {Math.min(currentPage * rowsPerPage, filteredData.length)} of{" "}
+							{filteredData.length}
 						</span>
 						<div className={styles.SwitchContainer}>
 							<div className={styles.SwitchLabel}>Brokerage Listings</div>
@@ -195,9 +193,7 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 						))}
 						<div
 							className={styles.Arrow}
-							onClick={() =>
-								setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(filteredData.length / rowsPerPage)))
-							}
+							onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(filteredData.length / rowsPerPage)))}
 							style={{ marginLeft: "1rem" }}>
 							<FaArrowRight color="#e6d366" size={"1.2rem"} />
 						</div>

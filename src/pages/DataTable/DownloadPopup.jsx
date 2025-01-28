@@ -7,22 +7,37 @@ import CsvIcon from "../../assets/images/CsvIcon.webp";
 import DownloadButton from "../../assets/images/DownloadButton.webp";
 import PdfIcon from "../../assets/images/PdfIcon.webp";
 import styles from "./DownloadPopup.module.scss";
+import { formatTimestamp } from "../../components/utils/HelperFunctions";
 
-const DownloadPopup = ({ setOpenDownloadPopup, data }) => {
-	const headers = [
-		{ label: "UniqueID", key: "UniqueID" },
-		{ label: "CoListAgentFullName", key: "CoListAgentFullName" },
-		{ label: "CoListAgentMlsId", key: "CoListAgentMlsId" },
-		{ label: "ListAgentFullName", key: "ListAgentFullName" },
-		{ label: "ListAgentMlsId", key: "ListAgentMlsId" },
-	];
+const DownloadPopup = ({ setOpenDownloadPopup, data, selectedKeys }) => {
+	// const headers = [
+	// 	{ label: "UniqueID", key: "UniqueID" },
+	// 	{ label: "CoListAgentFullName", key: "CoListAgentFullName" },
+	// 	{ label: "CoListAgentMlsId", key: "CoListAgentMlsId" },
+	// 	{ label: "ListAgentFullName", key: "ListAgentFullName" },
+	// 	{ label: "ListAgentMlsId", key: "ListAgentMlsId" },
+	// ];
+	const headers = selectedKeys.map((key) => ({
+		label: key,
+		key: key,
+	}));
 
 	// Generate PDF
 	const handleDownloadPdf = () => {
-		const keys = Object.keys(data[0]);
 		const doc = new jsPDF();
-		const tableColumn = headers.map((header) => header.label); // Table headers
-		const tableRows = data.map((row) => headers.map((header) => row[header.key] || "N/A")); // Table rows
+		const tableColumn = headers.map((header) => header.label); // Table headers from selectedKeys
+
+		// Map over the data and handle formatting for ModifiedDate
+		const tableRows = data.map((row) =>
+			headers.map((header) => {
+				const value = row[header.key] || "N/A"; // Default value if missing
+				// If the key is 'ModifiedDate', format it
+				if (header.key === "ModifiedDate") {
+					return formatTimestamp(value);
+				}
+				return value; // Return original value
+			})
+		);
 
 		// Add title to PDF
 		doc.text("Data Table", 14, 15);
